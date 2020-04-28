@@ -8,10 +8,59 @@
     <link href="Assets/favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
+    <nav class="navbar text-white bg-primary text-center">
+        <h3>Weather Dashboard</h3>
+    </nav>
 
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-4">
+                <form>
+                    <div class="form-group">
+                        <label for="CitySearch">Search for a City: </label>
+                        <input class="form-control" id="city-input">
+                    </div>
+                    <button class="btn btn-primary search">Search</button>
+                </form>
+                <div class="list-group mt-4">
+                    <!-- <button type="button" class="list-group-item list-group-item-action">Cras justo odio</button> -->
+                </div>
+            </div>
+
+            <div class="col-8">
+                <div class="card invisible" id="main-card">
+                    <div class="card-body">
+                        <h2 id="current-city-name">
+                        </h2>
+                        <!-- <img src=" http://openweathermap.org/img/w/01n.png" id="current-icon"> -->
+                        <div id="current-weather-card">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-deck mt-4">
+                    <!-- example card -->
+                    <!-- <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="Assets/script.js"></script>
 </body>
 
 </html>
