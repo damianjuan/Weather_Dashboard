@@ -4,6 +4,9 @@ Weather Dashboard with form inputs to search by city. search results show the cu
 
 ## APIs Used
 
-OpenWeather API (https://openweathermap.org/api)
+* [OpenWeather API](https://openweathermap.org/api)
+
+## CSS Framework Used
+* [BootStrap](https://getbootstrap.com/)
 
 
