@@ -6,7 +6,7 @@ var savedSearches = [];
 getSearchHistory();
 
 // function to execute when search button clicked
-$(".search").click(function () {
+$(".search").click(function (event) {
     // grab text Input and assign to cityToSearch
     event.preventDefault();
     document.getElementById("main-card").className = "card visible";
@@ -27,7 +27,7 @@ $(".search").click(function () {
     }
 });
 //listens for button clicks on search history buttons
-$(".saved-stuff-to-show").click(function () {
+$(document).on("click", ".saved-stuff-to-show", function (event) {
     // grab text Input and assign to cityToSearch
     event.preventDefault();
     cityToSearch = $(this).text();
@@ -75,6 +75,7 @@ function searchWeather() {
 };
 
 function generateForecast() {
+    $(".card-deck").empty();
     var key = "eb351a084e41464ee7914d632b4670ce";
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
@@ -100,11 +101,12 @@ function generateForecast() {
                 console.log("humidity: " + humidity);
                 console.log("_______________");
                 var forecastCard = $(`<div class="card bg-primary text-white"></div>`);
-                var cardBody = forecastCard.append($(`<div class="card-body"></div>`));
+                var cardBody = $("<div>").addClass("card-body");
                 cardBody.append(`<p>${day}</p>`);
-                cardBody.append(`<img src="${iconURL}">`);
+                cardBody.append(`<img class="w-100" src="${iconURL}">`);
                 cardBody.append(`<p>Temp: ${fTemp}&deg;F</p>`);
                 cardBody.append(`<p>Humidity: ${humidity}%</p>`);
+                forecastCard.append(cardBody);
                 $(".card-deck").append(forecastCard);
             }
         });
