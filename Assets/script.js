@@ -45,7 +45,7 @@ function searchWeather() {
     document.getElementById("forecast-title").className = "mt-4 visible";
     var key = "eb351a084e41464ee7914d632b4670ce";
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
     }).then(function (response) {
         var temp = Number(response.main.temp);
@@ -55,7 +55,7 @@ function searchWeather() {
         var lat = response.coord.lat;
         var lon = response.coord.lon;
         var icon = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+        var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
         var cityName = response.name;
         var currentWeatherHeader = cityName + "(" + currentDay + ")";
 
@@ -78,7 +78,7 @@ function generateForecast() {
     $(".card-deck").empty();
     var key = "eb351a084e41464ee7914d632b4670ce";
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityToSearch + "&appid=" + key,
         method: "GET"
     }).then(function (response) {
         var lat = response.coord.lat;
@@ -90,7 +90,7 @@ function generateForecast() {
             console.log(response);
             for (let i = 0; i < 5; i++) {
                 var icon = response.daily[i].weather[0].icon;
-                var iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+                var iconURL = "https://openweathermap.org/img/w/" + icon + ".png";
                 var temp = Number(response.daily[i].temp.day);
                 var fTemp = parseInt(1.8 * (temp - 273) + 32);
                 var humidity = response.daily[i].humidity;
